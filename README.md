@@ -1,10 +1,10 @@
-<h1 align="center">hypref-sms</h1>
+<h1 align="center">hyperf-sms</h1>
 
 <p align="center">
-<a href="https://packagist.org/packages/webguosai/hypref-sms"><img src="https://poser.pugx.org/webguosai/hypref-sms/v/stable" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/webguosai/hypref-sms"><img src="https://poser.pugx.org/webguosai/hypref-sms/downloads" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/webguosai/hypref-sms"><img src="https://poser.pugx.org/webguosai/hypref-sms/v/unstable" alt="Latest Unstable Version"></a>
-<a href="https://packagist.org/packages/webguosai/hypref-sms"><img src="https://poser.pugx.org/webguosai/hypref-sms/license" alt="License"></a>
+<a href="https://packagist.org/packages/webguosai/hyperf-sms"><img src="https://poser.pugx.org/webguosai/hyperf-sms/v/stable" alt="Latest Stable Version"></a>
+<a href="https://packagist.org/packages/webguosai/hyperf-sms"><img src="https://poser.pugx.org/webguosai/hyperf-sms/downloads" alt="Total Downloads"></a>
+<a href="https://packagist.org/packages/webguosai/hyperf-sms"><img src="https://poser.pugx.org/webguosai/hyperf-sms/v/unstable" alt="Latest Unstable Version"></a>
+<a href="https://packagist.org/packages/webguosai/hyperf-sms"><img src="https://poser.pugx.org/webguosai/hyperf-sms/license" alt="License"></a>
 </p>
 
 
@@ -16,7 +16,7 @@
 ## 安装
 
 ```bash
-composer require webguosai/hypref-sms -vvv
+composer require webguosai/hyperf-sms -vvv
 ```
 
 ```bash

@@ -1,5 +1,5 @@
 {
-  "name": "webguosai/hypref-sms",
+  "name": "webguosai/hyperf-sms",
   "description": "hyperf短信扩展包",
   "license": "MIT",
   "keywords": [
