@@ -1,0 +1,42 @@
+{
+  "name": "webguosai/hypref-sms",
+  "description": "hyperf短信扩展包",
+  "license": "MIT",
+  "keywords": [
+    "php",
+    "hyperf",
+    "sms",
+    "hyperf-sms"
+  ],
+  "support": {
+    "issues": "https://github.com/webguosai/hyperf-sms/issues",
+    "source": "https://github.com/webguosai/hyperf-sms"
+  },
+  "authors": [
+    {
+      "name": "webguosai",
+      "email": "501807312@qq.com"
+    }
+  ],
+  "require": {
+    "php": ">=8.1",
+    "hyperf/di": "~3.1.0",
+    "webguosai/http-client": "^2.2"
+  },
+  "require-dev": {
+    "symfony/var-dumper": "^3.4"
+  },
+  "config": {
+    "sort-packages": true
+  },
+  "extra": {
+    "hyperf": {
+      "config": "Webguosai\\HyperfSms\\ConfigProvider"
+    }
+  },
+  "autoload": {
+    "psr-4": {
+      "Webguosai\\HyperfSms\\": "src"
+    }
+  }
+}
