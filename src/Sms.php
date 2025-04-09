@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Webguosai\HyperfSms;
 
 use Hyperf\Contract\ConfigInterface;

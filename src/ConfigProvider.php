@@ -1,11 +1,6 @@
 <?php
 
 declare(strict_types=1);
-/**
- * hyperf 组件加载配置
- * @link     http://www.swoole.red
- * @contact  1712715552@qq.com
- */
 
 namespace Webguosai\HyperfSms;
 

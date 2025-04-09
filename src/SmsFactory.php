@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Webguosai\HyperfSms;
 
 use Hyperf\Contract\ConfigInterface;
@@ -13,7 +15,7 @@ class SmsFactory
 
     public function get(string $name)
     {
-        $option = $this->config->get('sms.driver.'.$name, [
+        $option = $this->config->get('sms.driver.' . $name, [
 
         ]);
 
