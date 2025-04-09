@@ -6,6 +6,7 @@ namespace Webguosai\HyperfSms;
 
 use Hyperf\Contract\ConfigInterface;
 use Psr\Container\ContainerInterface;
+use function Hyperf\Support\make;
 
 class SmsFactory
 {
@@ -15,10 +16,8 @@ class SmsFactory
 
     public function get(string $name)
     {
-        $option = $this->config->get('sms.driver.' . $name, [
+        $option = $this->config->get('sms.driver.' . $name, []);
 
-        ]);
-
-        return $option['driver']($option['config']);
+        return make($option['driver'], ['config' => $option['config']]);
     }
 }
