@@ -4,8 +4,9 @@ namespace Webguosai\HyperfSms\Driver;
 
 use Exception;
 use Webguosai\HttpClient;
+use Webguosai\HyperfSms\Contract\SmsInterface;
 
-class Chinese
+class Chinese implements SmsInterface
 {
     protected array $errorCodes = [
         '-1'  => '没有该用户账户',
@@ -28,14 +29,14 @@ class Chinese
 
     /**
      * 发送短信
-     * @param mixed $mobile
+     * @param string $mobile
      * @param string $message
      * @param string $templateKey
      * @param array $params
      * @return void
      * @throws Exception
      */
-    public function send($mobile, string $message, string $templateKey = '', array $params = []): void
+    public function send(string $mobile, string $message, string $templateKey = '', array $params = []): void
     {
         $url      = "https://utf8api.smschinese.cn/?Uid={$this->config['uid']}&Key={$this->config['key']}&smsMob={$mobile}&smsText=" . URLEncode($message);
         $response = (new HttpClient(['timeout' => 5]))->get($url);
