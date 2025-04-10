@@ -12,7 +12,7 @@ class Sms
     public function __invoke(ContainerInterface $container)
     {
         $config = $container->get(ConfigInterface::class);
-        $name = $config->get('sms.default', 'chinese');
+        $name = $config->get('sms.default', 'qiniu');
 
         /**
          * @var SmsFactory $factory

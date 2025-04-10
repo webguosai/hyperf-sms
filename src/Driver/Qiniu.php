@@ -5,31 +5,29 @@ declare(strict_types=1);
 namespace Webguosai\HyperfSms\Driver;
 
 use Exception;
-use Webguosai\HyperfSms\Contract\MessageInterface;
 use Webguosai\HyperfSms\Contract\SmsInterface;
+use Webguosai\HyperfSms\SmsBase;
 
-class Qiniu implements SmsInterface
+class Qiniu extends SmsBase implements SmsInterface
 {
-    public function __construct(protected array $config)
-    {
-    }
-
     /**
      * 发送短信
      * https://developer.qiniu.com/sms/5897/sms-api-send-message#2
      * @param string $mobile
-     * @param MessageInterface $message
+     * @param array $message
      * @return mixed
      * @throws Exception
      */
-    public function send(string $mobile, MessageInterface $message): mixed
+    public function send(string $mobile, array $message): mixed
     {
+        $message = $this->formatMessage($message);
+
         $url = sprintf('https://%s.qiniuapi.com/%s/%s', 'sms', 'v1', 'message/single');
 
         $data = json_encode([
-            'template_id' => $message->getTemplate(),
+            'template_id' => $message->getTemplate($this),
             'mobile'      => $mobile,
-            'parameters'  => $message->getData(),
+            'parameters'  => $message->getData($this),
         ]);
 
         $response = (new \Webguosai\HttpClient(['timeout' => 5]))->post($url, $data, [

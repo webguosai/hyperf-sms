@@ -6,5 +6,7 @@ namespace Webguosai\HyperfSms\Contract;
 
 interface SmsInterface
 {
-    public function send(string $mobile, MessageInterface $message);
+    public function send(string $mobile, array $message);
+
+    public function getName();
 }

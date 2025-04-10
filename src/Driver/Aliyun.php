@@ -5,24 +5,22 @@ declare(strict_types=1);
 namespace Webguosai\HyperfSms\Driver;
 
 use Exception;
-use Webguosai\HyperfSms\Contract\MessageInterface;
 use Webguosai\HyperfSms\Contract\SmsInterface;
+use Webguosai\HyperfSms\SmsBase;
 
-class Ali implements SmsInterface
+class Aliyun extends SmsBase implements SmsInterface
 {
-    public function __construct(protected array $config)
-    {
-    }
-
     /**
      * 发送短信
      * @param string $mobile
-     * @param MessageInterface $message
+     * @param array $message
      * @return void
      * @throws Exception
      */
-    public function send(string $mobile, MessageInterface $message): void
+    public function send(string $mobile, array $message): void
     {
+        $message = $this->formatMessage($message);
+
         $params = [
             'Format'           => 'JSON',
             'Version'          => '2017-05-25',
@@ -35,8 +33,8 @@ class Ali implements SmsInterface
             'RegionId'         => $this->config['regionId'],
             'PhoneNumbers'     => $mobile,
             'SignName'         => $this->config['signName'],
-            'TemplateCode'     => $message->getTemplate(),
-            'TemplateParam'    => json_encode($message->getData())
+            'TemplateCode'     => $message->getTemplate($this),
+            'TemplateParam'    => json_encode($message->getData($this))
         ];
 
         // 对参数进行排序

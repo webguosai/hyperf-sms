@@ -1,17 +1,24 @@
 <?php
 
 return [
-    'default' => 'chinese',
+    'default' => 'qiniu',
     'driver'  => [
-        'chinese' => [
-            'driver' => \Webguosai\HyperfSms\Driver\Chinese::class,
+        'qiniu'   => [
+            'driver' => \Webguosai\HyperfSms\Driver\Qiniu::class,
+            'config' => [
+                'access_key' => '',
+                'secret_key' => '',
+            ]
+        ],
+        'smschinese' => [
+            'driver' => \Webguosai\HyperfSms\Driver\Smschinese::class,
             'config' => [
                 'uid' => '',
                 'key' => '',
             ]
         ],
-        'ali'     => [
-            'driver' => \Webguosai\HyperfSms\Driver\Ali::class,
+        'aliyun'     => [
+            'driver' => \Webguosai\HyperfSms\Driver\Aliyun::class,
             'config' => [
                 'accessKeyId'     => '',
                 'accessKeySecret' => '',
@@ -19,12 +26,5 @@ return [
                 'signName'        => '',
             ]
         ],
-        'qiniu'   => [
-            'driver' => \Webguosai\HyperfSms\Driver\Qiniu::class,
-            'config' => [
-                'access_key' => '',
-                'secret_key' => '',
-            ]
-        ]
     ]
 ];

@@ -6,10 +6,10 @@ namespace Webguosai\HyperfSms\Driver;
 
 use Exception;
 use Webguosai\HttpClient;
-use Webguosai\HyperfSms\Contract\MessageInterface;
 use Webguosai\HyperfSms\Contract\SmsInterface;
+use Webguosai\HyperfSms\SmsBase;
 
-class Chinese implements SmsInterface
+class Smschinese extends SmsBase implements SmsInterface
 {
     protected array $errorCodes = [
         '-1'  => '没有该用户账户',
@@ -26,20 +26,19 @@ class Chinese implements SmsInterface
         '-6'  => 'IP限制',
     ];
 
-    public function __construct(protected array $config)
-    {
-    }
-
     /**
      * 发送短信
+     * https://www.smschinese.com.cn/api.shtml
      * @param string $mobile
-     * @param MessageInterface $message
+     * @param array $message
      * @return void
      * @throws Exception
      */
-    public function send(string $mobile, MessageInterface $message): void
+    public function send(string $mobile, array $message): void
     {
-        $url      = "https://utf8api.smschinese.cn/?Uid={$this->config['uid']}&Key={$this->config['key']}&smsMob={$mobile}&smsText=" . URLEncode($message->getContent());
+        $message = $this->formatMessage($message);
+
+        $url      = "https://utf8api.smschinese.cn/?Uid={$this->config['uid']}&Key={$this->config['key']}&smsMob={$mobile}&smsText=" . URLEncode($message->getContent($this));
         $response = (new HttpClient(['timeout' => 5]))->get($url);
 
         if ($response->ok()) {

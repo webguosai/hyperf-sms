@@ -3,6 +3,7 @@
 namespace Webguosai\HyperfSms;
 
 use Webguosai\HyperfSms\Contract\MessageInterface;
+use Webguosai\HyperfSms\Contract\SmsInterface;
 
 class Message implements MessageInterface
 {
@@ -21,29 +22,31 @@ class Message implements MessageInterface
 
     /**
      * 返回消息的模板id
+     * @param SmsInterface $sms
      * @return string
      */
-    public function getTemplate(): string
+    public function getTemplate(SmsInterface $sms): string
     {
-        return $this->template;
+        return is_callable($this->template) ? call_user_func($this->template, $sms->getName()) : $this->template;
     }
 
     /**
      * 返回消息内容
+     * @param SmsInterface $sms
      * @return string
      */
-    public function getContent(): string
+    public function getContent(SmsInterface $sms): string
     {
-        return $this->content;
-        // return is_callable($this->content) ? call_user_func($this->content, $gateway) : $this->content;
+        return is_callable($this->content) ? call_user_func($this->content, $sms->getName()) : $this->content;
     }
 
     /**
      * 返回消息的模板数据
+     * @param SmsInterface $sms
      * @return array
      */
-    public function getData(): array
+    public function getData(SmsInterface $sms): array
     {
-        return $this->data;
+        return is_callable($this->data) ? call_user_func($this->data, $sms->getName()) : $this->data;
     }
 }
