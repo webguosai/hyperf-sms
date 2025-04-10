@@ -18,6 +18,6 @@ class Sms
          * @var SmsFactory $factory
          */
         $factory = $container->get(SmsFactory::class);
-        return $factory->get($name);
+        return $factory->make($name);
     }
 }

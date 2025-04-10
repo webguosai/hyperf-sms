@@ -29,7 +29,10 @@
   "autoload": {
     "psr-4": {
       "Webguosai\\HyperfSms\\": "src"
-    }
+    },
+    "files": [
+      "src/functions.php"
+    ]
   },
   "config": {
     "sort-packages": true

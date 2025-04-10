@@ -14,7 +14,7 @@ class SmsFactory
     {
     }
 
-    public function get(string $name)
+    public function make(string $name)
     {
         $option = $this->config->get('sms.driver.' . $name, []);
 
