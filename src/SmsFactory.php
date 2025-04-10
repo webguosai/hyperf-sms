@@ -6,6 +6,7 @@ namespace Webguosai\HyperfSms;
 
 use Hyperf\Contract\ConfigInterface;
 use Psr\Container\ContainerInterface;
+use InvalidArgumentException;
 use function Hyperf\Support\make;
 
 class SmsFactory
@@ -17,6 +18,10 @@ class SmsFactory
     public function make(string $name)
     {
         $option = $this->config->get('sms.driver.' . $name, []);
+
+        if (empty($option)) {
+            throw new InvalidArgumentException("短信配置文件缺少[{$name}]驱动!");
+        }
 
         return make($option['driver'], ['config' => $option['config']]);
     }

@@ -2,7 +2,7 @@
 
 return [
     'default' => 'chinese',
-    'driver' => [
+    'driver'  => [
         'chinese' => [
             'driver' => \Webguosai\HyperfSms\Driver\Chinese::class,
             'config' => [
@@ -10,14 +10,21 @@ return [
                 'key' => '',
             ]
         ],
-        // 'ali'     => [
-        //     'driver' => \Webguosai\HyperfSms\Adapter\AliAdapterFactory::class,
-        //     'config' => [
-        //         'accessKeyId'     => '',
-        //         'accessKeySecret' => '',
-        //         'regionId'        => '',
-        //         'signName'        => '',
-        //     ]
-        // ]
+        'ali'     => [
+            'driver' => \Webguosai\HyperfSms\Driver\Ali::class,
+            'config' => [
+                'accessKeyId'     => '',
+                'accessKeySecret' => '',
+                'regionId'        => '',
+                'signName'        => '',
+            ]
+        ],
+        'qiniu'   => [
+            'driver' => \Webguosai\HyperfSms\Driver\Qiniu::class,
+            'config' => [
+                'access_key' => '',
+                'secret_key' => '',
+            ]
+        ]
     ]
 ];

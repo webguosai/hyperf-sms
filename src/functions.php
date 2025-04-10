@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use Hyperf\Context\ApplicationContext;
 use Webguosai\HyperfSms\Contract\SmsInterface;
 
 if (!function_exists('sms')) {
@@ -10,6 +11,8 @@ if (!function_exists('sms')) {
      */
     function sms(): SmsInterface
     {
-        return di(SmsInterface::class);
+        $container = ApplicationContext::getContainer();
+
+        return $container->get(SmsInterface::class);
     }
 }

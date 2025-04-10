@@ -6,6 +6,7 @@ namespace Webguosai\HyperfSms\Driver;
 
 use Exception;
 use Webguosai\HttpClient;
+use Webguosai\HyperfSms\Contract\MessageInterface;
 use Webguosai\HyperfSms\Contract\SmsInterface;
 
 class Chinese implements SmsInterface
@@ -32,15 +33,13 @@ class Chinese implements SmsInterface
     /**
      * 发送短信
      * @param string $mobile
-     * @param string $message
-     * @param string $templateKey
-     * @param array $params
+     * @param MessageInterface $message
      * @return void
      * @throws Exception
      */
-    public function send(string $mobile, string $message, string $templateKey = '', array $params = []): void
+    public function send(string $mobile, MessageInterface $message): void
     {
-        $url      = "https://utf8api.smschinese.cn/?Uid={$this->config['uid']}&Key={$this->config['key']}&smsMob={$mobile}&smsText=" . URLEncode($message);
+        $url      = "https://utf8api.smschinese.cn/?Uid={$this->config['uid']}&Key={$this->config['key']}&smsMob={$mobile}&smsText=" . URLEncode($message->getContent());
         $response = (new HttpClient(['timeout' => 5]))->get($url);
 
         if ($response->ok()) {
