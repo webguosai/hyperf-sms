@@ -12,6 +12,7 @@
 
 - php >= 8.1
 - composer
+- hyperf >= 3.1
 
 ## 安装
 
@@ -117,7 +118,7 @@ sms()->send('18888888888', [
     },
     'template' => function($name){
         if ($name == 'aliyun') {
-            return 'TP2818';
+            return '1888883905033940992';
         }
         return 'SMS_001';
     },
