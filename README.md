@@ -30,10 +30,10 @@ php bin/hyperf.php vendor:publish webguosai/hyperf-sms
 ```php
 return [
     // 默认驱动
-    'default' => 'chinese',
+    'default' => 'qiniu',
     'driver'  => [
-        'chinese' => [
-            'driver' => \Webguosai\HyperfSms\Driver\Chinese::class,
+        'smschinese' => [
+            'driver' => \Webguosai\HyperfSms\Driver\Smschinese::class,
             // 驱动需要初始化传递的参数
             'config' => [
                 'uid' => '',
@@ -92,9 +92,9 @@ $sms->send('18888888888', [
 ### 自定义驱动
 
 ```php
-$sms = \Webguosai\HyperfSms\Facade\Sms::driver('chinese');
+$sms = \Webguosai\HyperfSms\Facade\Sms::driver('qiniu');
 // 或 
-// $sms = \Webguosai\HyperfSms\Facade\Sms::make('chinese');
+// $sms = \Webguosai\HyperfSms\Facade\Sms::make('qiniu');
 
 $sms->send('18888888888', [
     'template' => 'xxx',

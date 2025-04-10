@@ -4,12 +4,13 @@ namespace Webguosai\HyperfSms;
 
 use Webguosai\HyperfSms\Contract\MessageInterface;
 use Webguosai\HyperfSms\Contract\SmsInterface;
+use Closure;
 
 class Message implements MessageInterface
 {
-    protected string $template;
-    protected string $content;
-    protected array $data;
+    protected string|Closure $template;
+    protected string|Closure $content;
+    protected array|Closure $data;
 
     public function __construct(array $attributes = [])
     {
