@@ -2,12 +2,11 @@
 
 namespace Webguosai\HyperfSms;
 
-use Hyperf\Stringable\Str;
 use Webguosai\HyperfSms\Contract\MessageInterface;
 
 class SmsBase
 {
-    public function __construct(protected array $config)
+    public function __construct(protected array $config, protected string $driver, protected string $name)
     {
     }
 
@@ -16,8 +15,13 @@ class SmsBase
         return new Message($message);
     }
 
+    public function getDriver(): string
+    {
+        return $this->driver;
+    }
+
     public function getName(): string
     {
-        return strtolower(Str::afterLast(get_called_class(), '\\'));
+        return $this->name;
     }
 }

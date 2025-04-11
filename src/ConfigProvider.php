@@ -12,20 +12,20 @@ class ConfigProvider
     {
         return [
             'dependencies' => [
-                SmsInterface::class => Sms::class
+                SmsInterface::class => Sms::class,
             ],
-            'annotations' => [
+            'annotations'  => [
                 'scan' => [
                     'paths' => [
                         __DIR__,
                     ],
                 ],
             ],
-            'publish' => [
+            'publish'      => [
                 [
-                    'id' => 'config',
+                    'id'          => 'config',
                     'description' => 'The config for sms component.',
-                    'source' => __DIR__ . '/../publish/sms.php',
+                    'source'      => __DIR__ . '/../publish/sms.php',
                     'destination' => BASE_PATH . '/config/autoload/sms.php',
                 ],
             ],

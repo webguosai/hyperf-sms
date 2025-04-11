@@ -8,5 +8,7 @@ interface SmsInterface
 {
     public function send(string $mobile, array $message);
 
+    public function getDriver();
+
     public function getName();
 }

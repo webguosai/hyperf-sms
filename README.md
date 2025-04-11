@@ -33,15 +33,26 @@ return [
     // 默认驱动
     'default' => 'qiniu',
     'driver'  => [
+        'qiniu'      => [
+            // 驱动名称
+            'name'   => '七牛云短信',
+            'driver' => \Webguosai\HyperfSms\Driver\Qiniu::class,
+            // 驱动初始化参数
+            'config' => [
+                'access_key' => '',
+                'secret_key' => '',
+            ]
+        ],
         'smschinese' => [
+            'name'   => '中国网建',
             'driver' => \Webguosai\HyperfSms\Driver\Smschinese::class,
-            // 驱动需要初始化传递的参数
             'config' => [
                 'uid' => '',
                 'key' => '',
             ]
         ],
         'aliyun'     => [
+            'name'   => '阿里云短信',
             'driver' => \Webguosai\HyperfSms\Driver\Aliyun::class,
             'config' => [
                 'accessKeyId'     => '',
@@ -50,13 +61,6 @@ return [
                 'signName'        => '',
             ]
         ],
-        'qiniu'   => [
-            'driver' => \Webguosai\HyperfSms\Driver\Qiniu::class,
-            'config' => [
-                'access_key' => '',
-                'secret_key' => '',
-            ]
-        ]
     ]
 ];
 ```
@@ -110,19 +114,19 @@ $sms->send('18888888888', [
 
 ```php
 sms()->send('18888888888', [
-    'content'  => function($name){
-        if ($name == 'aliyun') {
+    'content'  => function($driver){
+        if ($driver == 'aliyun') {
             return '云片专用验证码：1235';
         }
         return '您的验证码为: 6379';
     },
-    'template' => function($name){
-        if ($name == 'aliyun') {
+    'template' => function($driver){
+        if ($driver == 'aliyun') {
             return '1888883905033940992';
         }
         return 'SMS_001';
     },
-    'data' => function($name){
+    'data' => function($driver){
         return [
             'code' => 6379
         ];

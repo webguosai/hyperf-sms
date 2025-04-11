@@ -12,12 +12,12 @@ class Sms
     public function __invoke(ContainerInterface $container)
     {
         $config = $container->get(ConfigInterface::class);
-        $name = $config->get('sms.default', 'qiniu');
+        $driver = $config->get('sms.default', 'qiniu');
 
         /**
          * @var SmsFactory $factory
          */
         $factory = $container->get(SmsFactory::class);
-        return $factory->make($name);
+        return $factory->make($driver);
     }
 }

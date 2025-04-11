@@ -28,7 +28,7 @@ class Message implements MessageInterface
      */
     public function getTemplate(SmsInterface $sms): string
     {
-        return is_callable($this->template) ? call_user_func($this->template, $sms->getName()) : $this->template;
+        return is_callable($this->template) ? call_user_func($this->template, $sms->getDriver()) : $this->template;
     }
 
     /**
@@ -38,7 +38,7 @@ class Message implements MessageInterface
      */
     public function getContent(SmsInterface $sms): string
     {
-        return is_callable($this->content) ? call_user_func($this->content, $sms->getName()) : $this->content;
+        return is_callable($this->content) ? call_user_func($this->content, $sms->getDriver()) : $this->content;
     }
 
     /**
@@ -48,6 +48,6 @@ class Message implements MessageInterface
      */
     public function getData(SmsInterface $sms): array
     {
-        return is_callable($this->data) ? call_user_func($this->data, $sms->getName()) : $this->data;
+        return is_callable($this->data) ? call_user_func($this->data, $sms->getDriver()) : $this->data;
     }
 }
