@@ -15,10 +15,10 @@ class Qiniu extends SmsBase implements SmsInterface
      * https://developer.qiniu.com/sms/5897/sms-api-send-message#2
      * @param string $mobile
      * @param array $message
-     * @return mixed
+     * @return void
      * @throws Exception
      */
-    public function send(string $mobile, array $message): mixed
+    public function send(string $mobile, array $message): void
     {
         $message = $this->formatMessage($message);
 
@@ -37,7 +37,7 @@ class Qiniu extends SmsBase implements SmsInterface
         $json = $response->json();
 
         if ($response->ok()) {
-            return $json;
+            return ;
         }
 
         throw new Exception(($json['message'] ?? '') . '[' . ($json['error'] ?? '') . ']');

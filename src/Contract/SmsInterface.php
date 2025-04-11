@@ -6,9 +6,23 @@ namespace Webguosai\HyperfSms\Contract;
 
 interface SmsInterface
 {
-    public function send(string $mobile, array $message);
+    /**
+     * 发送短信
+     * @param string $mobile
+     * @param array $message
+     * @return void
+     */
+    public function send(string $mobile, array $message): void;
 
-    public function getDriver();
+    /**
+     * 获取驱动
+     * @return string
+     */
+    public function getDriver(): string;
 
-    public function getName();
+    /**
+     * 获取名称
+     * @return string
+     */
+    public function getName(): string;
 }

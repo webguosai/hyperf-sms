@@ -15,11 +15,19 @@ class SmsBase
         return new Message($message);
     }
 
+    /**
+     * 获取驱动
+     * @return string
+     */
     public function getDriver(): string
     {
         return $this->driver;
     }
 
+    /**
+     * 获取名称
+     * @return string
+     */
     public function getName(): string
     {
         return $this->name;

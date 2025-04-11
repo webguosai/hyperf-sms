@@ -20,13 +20,15 @@
 composer require webguosai/hyperf-sms -vvv
 ```
 
+## 配置
+
 发布配置
 
 ```bash
 php bin/hyperf.php vendor:publish webguosai/hyperf-sms
 ```
 
-## 配置
+配置文件
 
 ```php
 return [
@@ -67,7 +69,9 @@ return [
 
 ## 使用
 
-- 写法一
+### 发送短信
+
+- **写法一**
 
 ```php
 sms()->send('18888888888', [
@@ -79,7 +83,7 @@ sms()->send('18888888888', [
 ]);
 ```
 
-- 写法二
+- **写法二**
 
 ```php
 use Webguosai\HyperfSms\Contract\SmsInterface;
@@ -92,6 +96,14 @@ $sms->send('18888888888', [
         'code' => '1234'
     ]
 ]);
+```
+
+### 获取信息
+
+```php
+sms()->getName();
+
+sms()->getDriver();
 ```
 
 ### 自定义驱动
@@ -133,8 +145,6 @@ sms()->send('18888888888', [
     }
 ]);
 ```
-
-
 
 ## License
 
