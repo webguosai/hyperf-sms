@@ -18,13 +18,6 @@ interface SmsInterface
     public function send(string $mobile, array $message): void;
 
     /**
-     * 格式化message
-     * @param array $message
-     * @return MessageInterface
-     */
-    public function formatMessage(array $message): MessageInterface;
-
-    /**
      * 获取驱动
      * @return string
      */

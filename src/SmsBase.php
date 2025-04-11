@@ -10,11 +10,6 @@ class SmsBase
     {
     }
 
-    public function formatMessage(array $message): MessageInterface
-    {
-        return new Message($message);
-    }
-
     /**
      * 获取驱动
      * @return string
@@ -32,4 +27,15 @@ class SmsBase
     {
         return $this->name;
     }
+
+    /**
+     * 格式化message
+     * @param array $message
+     * @return MessageInterface
+     */
+    protected function formatMessage(array $message): MessageInterface
+    {
+        return new Message($message);
+    }
+
 }
