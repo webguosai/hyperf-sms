@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Webguosai\HyperfSms\Contract;
 
+use Exception;
+
 interface SmsInterface
 {
     /**
@@ -11,6 +13,7 @@ interface SmsInterface
      * @param string $mobile
      * @param array $message
      * @return void
+     * @throws Exception
      */
     public function send(string $mobile, array $message): void;
 
