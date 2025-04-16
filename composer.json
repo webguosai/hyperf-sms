@@ -31,7 +31,7 @@
       "Webguosai\\HyperfSms\\": "src"
     },
     "files": [
-      "src/functions.php"
+      "src/Functions.php"
     ]
   },
   "config": {
