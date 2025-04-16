@@ -7,7 +7,7 @@ namespace Webguosai\HyperfSms;
 use Hyperf\Context\ApplicationContext;
 use Webguosai\HyperfSms\Contract\SmsInterface;
 
-if (!function_exists('sms')) {
+if (!function_exists('Webguosai\HyperfSms\sms')) {
     /**
      * 获取APP应用请求实例.
      */

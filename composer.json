@@ -28,7 +28,7 @@
   },
   "autoload": {
     "psr-4": {
-      "Webguosai\\HyperfSms\\": "src"
+      "Webguosai\\HyperfSms\\": "src/"
     },
     "files": [
       "src/Functions.php"
