@@ -74,6 +74,8 @@ return [
 - **写法一**
 
 ```php
+use function Webguosai\HyperfSms\sms;
+
 sms()->send('18888888888', [
     'template' => 'xxx',
     'content' => '您的验证码是1234，该验证码1分钟内有效，请勿泄漏于他人！',
@@ -101,6 +103,8 @@ $sms->send('18888888888', [
 ### 获取信息
 
 ```php
+use function Webguosai\HyperfSms\sms;
+
 sms()->getName();
 
 sms()->getDriver();
@@ -125,6 +129,8 @@ $sms->send('18888888888', [
 ### 闭包发送
 
 ```php
+use function Webguosai\HyperfSms\sms;
+
 sms()->send('18888888888', [
     'content'  => function($driver){
         if ($driver == 'aliyun') {
