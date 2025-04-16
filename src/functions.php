@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+namespace Webguosai\HyperfSms;
+
 use Hyperf\Context\ApplicationContext;
 use Webguosai\HyperfSms\Contract\SmsInterface;
 
